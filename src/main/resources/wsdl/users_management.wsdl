@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://andresbustamante.net/example/users/webservices" xmlns:users="http://andresbustamante.net/example/users" targetNamespace="http://andresbustamante.net/example/users/webservices">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xs:import namespace="http://andresbustamante.net/example/users" schemaLocation="../xsd/users.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="inputCreateUser">
+		<wsdl:part name="user" element="users:user"/>
+	</wsdl:message>
+	<wsdl:message name="outputCreateUser">
+		<wsdl:part name="user" element="users:user"/>
+	</wsdl:message>
+	<wsdl:portType name="UsersManagementWebService">
+		<wsdl:operation name="createUser">
+			<wsdl:input name="inputCreateUser" message="tns:inputCreateUser"/>
+			<wsdl:output name="outputCreateUser" message="tns:outputCreateUser"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="UsersManagementBinding" type="tns:UsersManagementWebService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="createUser">
+			<soap:operation soapAction=""/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="UsersManagementService">
+		<wsdl:port name="localhostPort" binding="tns:UsersManagementBinding">
+			<soap:address location="http://localhost:8080/api/ws/users_management"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
