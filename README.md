@@ -1,13 +1,13 @@
 # Demo project for Spring Framework and Web services using Apache CXF
 
 A demo project to show how to integrate Apache CXF to a Spring Framework application in order to publish web services
-from WSDL files. Optimised for JBoss EAP 7.0 and Apache Tomcat 8.5
+from WSDL files. Optimised for JBoss EAP 7.1 and Apache Tomcat 8.5
 
 ## Technologies
 
-- Apache CXF 3.1.4
-- Apache CXF Code generation plugin (cxf-codegen-plugin) 3.1.4
-- Spring Framework 4.2.5
+- Apache CXF 3.1.12
+- Apache CXF Code generation plugin (cxf-codegen-plugin) 3.1.12
+- Spring Framework 4.3.19
 
 ## Build and run
 
