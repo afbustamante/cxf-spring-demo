@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module xmlns="urn:jboss:module:1.5" name="org.springframework.spring">
+
+    <resources>
+        <resource-root path="spring-aop-4.3.19.RELEASE.jar"/>
+        <resource-root path="spring-beans-4.3.19.RELEASE.jar"/>
+        <resource-root path="spring-context-4.3.19.RELEASE.jar"/>
+        <resource-root path="spring-core-4.3.19.RELEASE.jar"/>
+        <resource-root path="spring-expression-4.3.19.RELEASE.jar"/>
+        <resource-root path="spring-web-4.3.19.RELEASE.jar"/>
+    </resources>
+
+    <dependencies>
+        <module name="org.apache.commons.logging"/>
+        <module name="javax.api" export="true"/>
+        <module name="javax.servlet.api" export="true"/>
+        <module name="org.jboss.vfs"/>
+    </dependencies>
+</module>

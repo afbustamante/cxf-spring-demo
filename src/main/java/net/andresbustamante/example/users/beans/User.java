@@ -76,4 +76,12 @@ public class User implements Serializable {
     public void setActive(boolean active) {
         this.active = active;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
 }

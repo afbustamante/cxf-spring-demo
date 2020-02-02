@@ -31,7 +31,7 @@
 	</wsdl:binding>
 	<wsdl:service name="UsersManagementService">
 		<wsdl:port name="localhostPort" binding="tns:UsersManagementBinding">
-			<soap:address location="http://localhost:8080/api/ws/users_management"/>
+			<soap:address location="http://localhost:8080/services/users_management"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

@@ -2,6 +2,8 @@ package net.andresbustamante.example.users.services.impl;
 
 import net.andresbustamante.example.users.beans.User;
 import net.andresbustamante.example.users.services.UsersManagementService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -11,6 +13,8 @@ import static net.andresbustamante.example.common.util.DateUtils.getCurrentDateT
 
 @Service
 public class UsersManagementServiceImpl implements UsersManagementService {
+
+    private final Logger logger = LoggerFactory.getLogger(UsersManagementServiceImpl.class);
 
     private final Map<Integer, User> usersMap = new TreeMap<>();
 
@@ -26,6 +30,7 @@ public class UsersManagementServiceImpl implements UsersManagementService {
         user.setId(id);
         user.setCreationDate(getCurrentDateTime());
         usersMap.put(id, user);
+        logger.info("New user added : {}", user.toString());
         return id;
     }
 
