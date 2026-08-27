@@ -1,12 +1,13 @@
 package net.andresbustamante.example.users.webservices.impl;
 
+import jakarta.xml.ws.Holder;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import net.andresbustamante.example.users.UserType;
 import net.andresbustamante.example.users.mappers.UserMapper;
 import net.andresbustamante.example.users.services.UsersManagementService;
 import net.andresbustamante.example.users.webservices.UsersManagementWebService;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.xml.ws.Holder;
 
 public class UsersManagementWebServiceImpl implements UsersManagementWebService {
 
