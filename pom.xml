@@ -17,11 +17,14 @@
 
     <spring.version>6.2.19</spring.version>
     <cxf.version>4.1.8</cxf.version>
+
+    <jakarta.activation-api.version>2.1.4</jakarta.activation-api.version>
     <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
+    <junit.version>6.1.1</junit.version>
+    <logback.version>1.5.38</logback.version>
     <lombok.version>1.18.46</lombok.version>
     <mapstruct.version>1.6.3</mapstruct.version>
     <slf4j-api.version>2.0.18</slf4j-api.version>
-    <junit.version>6.1.1</junit.version>
   </properties>
 
   <scm>
@@ -82,7 +85,7 @@
       <dependency>
         <groupId>jakarta.activation</groupId>
         <artifactId>jakarta.activation-api</artifactId>
-        <version>2.1.4</version>
+        <version>${jakarta.activation-api.version}</version>
       </dependency>
 
       <dependency>
@@ -125,7 +128,7 @@
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
-        <version>1.5.38</version>
+        <version>${logback.version}</version>
       </dependency>
 
       <dependency>
@@ -256,7 +259,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.4.1</version>
+        <version>3.6.3</version>
         <executions>
           <execution>
             <id>enforce-java</id>
@@ -293,25 +296,31 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.20.1</version>
+        <version>3.5.6</version>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
+        <version>3.3.1</version>
       </plugin>
 
       <plugin>
         <groupId>org.apache.cxf</groupId>
         <artifactId>cxf-codegen-plugin</artifactId>
         <version>${cxf.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+          </dependency>
+        </dependencies>
         <executions>
           <execution>
             <id>generate-sources</id>
             <phase>generate-sources</phase>
             <configuration>
-              <sourceRoot>${project.build.directory}/generated-sources</sourceRoot>
               <defaultOptions>
                 <bindingFiles>
                   <bindingFile>${basedir}/src/main/resources/xjb/date-bindings.xjb</bindingFile>
